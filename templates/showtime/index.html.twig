@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ShowtimeController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    img {
+        max-width: 500px;
+    }
+    h1, h2, h3 {
+            color: black;
+    }
+</style>
+
+{% for theaterShowtime in showtimes.feed.theaterShowtimes %}
+
+    <h2>Cinéma : {{ theaterShowtime.place.theater.name }}</h2>
+    <img src="{{ theaterShowtime.place.theater.picture.href | default( 'https://urlz.fr/alZB' ) }}" alt="">
+    {% for movieShowtime in theaterShowtime.movieShowtimes %}
+            <h3>Film : {{ movieShowtime.onShow.movie.title }} </h3>
+            {% if movieShowtime.onShow.movie.poster is defined %}
+            <img src="{{ movieShowtime.onShow.movie.poster.href }}" alt="">
+            {% endif %}
+            {% for scr in movieShowtime.scr %}
+                <h4>Date : {{ scr.d }}</h4>
+                {% for t in scr.t %}
+                <h5>Heure : {{ t['$'] }}</h5>
+                {% endfor %}
+            {% endfor %}
+        {% endfor %} 
+    {% endfor %}
+
+{% endblock %}

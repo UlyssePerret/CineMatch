@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rejoindre un évènement{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
+</style>
+
+<div class="example-wrapper">
+    <h2>Liste des Évènements</h2>
+    <!-- Page Content -->
+    <div class="example-wrapper">
+        <a href="#">Revenir à l'Accueil</a>
+
+
+        <table class="table table-bordered">
+            <thead class="thead-light">
+            <tr>
+                <th scope="row">
+                    Date
+                </th>
+                <th scope="row">
+                    Film
+                </th>
+                <th scope="row">
+                    Nbre participants
+                </th>
+                <th scope="row">
+                    Organisateur
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    date de l'évènement
+                </td>
+                <td>
+                    titre du film à récupérer
+                </td>
+                <td>
+                    nombre de membres inscrits
+                </td>
+                <td>
+                    Membre organisateur (cliquable)
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    {% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+        th, td { padding: 0 10px 0 10px; }
+    </style>
+
+    <div class="example-wrapper">
+        <h2>Listes des membres</h2>
+
+        <a href="{{ path('adduser') }}">Ajouter un utilisateur</a>
+        <table>
+            <thead>
+            <tr>
+                <th>
+                    Nom d'utilisateur
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Statut
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>
+                        {{ user.pseudo}}
+                    </td>
+                    <td>
+                        {{ user.email }}
+                    </td>
+                    <td>
+                        {{ user.statut }}
+                    </td>
+                    {# <td>
+                         {{ user.datenaissance | date('d/m/Y') }}
+                     </td> #}
+                    <td>
+                        <a href="">Afficher details</a> <br>
+                        <a href="">Modifier</a> <br>
+                        <a href="">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+
+{% endblock %}

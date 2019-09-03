@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Film{% endblock %}
+
+{% block body %}
+<style>
+    body {
+        background-color: darkgray;
+    }
+
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
+
+    .card {
+        margin: 0 auto;
+        border: 2px solid dimgrey;
+        width: 70%;
+        box-shadow: 10px 5px 5px black;
+        background: #0f6674;
+    }
+
+    a {
+        display: inline-block;
+    }
+
+    .btn-lg {
+        font-size: 1.5rem;
+    }
+
+
+    div.button_align {
+        margin: 10px 2.5% 10px 2.5%;
+        text-align: center;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h1,
+    h2 {
+        color: #313131;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+
+    /*.btn-lg{margin: 0 auto;font-size: 2.5rem} */
+</style>
+
+<div class="example-wrapper">
+
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-text">{{  film.titre  }}</h1>
+        </div>
+        <img src="{{ asset( film.image ) }}" alt="affiche">
+        <div class="card-body">
+            <h2 class="card-text">Réalisateur : </h2>
+            <p class="card-text">{{ film.directeurs }}</p>
+            <h2 class="card-text">Genre : </h2>
+            <p class="card-text">{{ film.genre }}</p>
+            <h2 class="card-text">Fiche complète : </h2>
+            <p class="card-text">
+                <a href="{{ film.lienFilm }}">{{ film.titre }}</a>
+            </p>
+            <div class="button_align">
+                <a href="{{ path( 'voir_seance', {code :film.code}) }}" class="btn btn-lg btn-warning " > Voir les seances</a>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

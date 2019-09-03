@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index utilisateur {% endblock %}
+
+{% block body %}
+<style>
+
+    /*ESSENTIALS*/
+    html,body{
+        height: 100%;
+    }
+    body{
+        font-family: 'Montserrat',"Roboto",sans-serif;
+        background-size: cover;
+        background-position:center;
+        background-color: #02132d;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-image: url("images/lens.jpg");
+        color: #313131;
+        display: table;
+        width: 100%;
+    }
+    .vertical_center{
+        /*display: table-cell;*/
+        vertical-align: middle;
+    }
+    /*PROFILE WIDGET*/
+    .profile_widget{
+        width: 400px;
+        padding: 75px 55px 70px 55px;
+        border-radius: 4px;
+        overflow: hidden;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        background-color: #7b7b7b;
+        background-repeat: no-repeat;
+        background-image: url("");
+        box-shadow: 0 50px 70px 0px rgba(0,0,0,0.7);
+        margin: 50px auto;
+    }
+    .pw_avatar{
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        border-radius: 150px;
+        border: 3px solid #313131;
+        margin: 0 auto 35px auto;
+    }
+    .pw_avatar img{
+        /*display: block;*/
+       width: 100%;
+        /*height: auto;*/
+    }
+    .pw_info{
+        margin: 0 0 100px 0;
+    }
+    .pw_info h1{
+        margin: 0 0 8px 0;
+        font-size: 24px;
+    }
+    .pw_info h2{
+        margin: 0 0 10px 0;
+        font-size: 19px;
+        color: #2c4b65;
+    }
+
+    .pw_info p{
+        margin: 0;
+        font-size: 14px;
+    }
+    .pw_info_admin{
+        font-size: 14px;
+    }
+
+
+</style>
+
+
+
+    <div class="vertical_center" >
+        <div class="profile_widget" >
+            <div class="pw_avatar" >
+                <img src="images/usopp_30.jpg" alt="" />
+            </div><!-- /.pw_avatar -->
+            <div class="pw_info" >
+                <h1>Usopp</h1>
+                <h2>Age</h2>
+
+                <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit.</p>
+
+            </div><!-- /.pw_info -->
+            <div class="pw_info_admin">
+                <p>Nom</p>
+                <p>Prenom</p>
+                <p>Email</p>
+            </div>
+            <button>Modifier le profil
+            </button>
+            <button>Supprimez le profil</button>
+
+        </div><!-- /.profile_widget -->
+    </div><!-- /.vertical_center -->
+
+{% endblock %}

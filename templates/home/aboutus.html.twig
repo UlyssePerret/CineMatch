@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title%}About Us{% endblock %}
+
+{% block body %}
+  <style>
+    body{
+      background-color: darkgray;
+    }
+    h1, h3 {
+      color: #313131;
+    }
+    p{
+      font-size: 1.1rem;
+    }
+    header{
+      /*border: white 2px solid;*/
+    }
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: white;
+      text-align: center;
+    }
+  </style>
+  <!-- Header -->
+  <header class="bg-dark text-center py-md-3 mb-4 border border-light rounded">
+    <div class="container">
+      <h1 class="font-weight-light text-white">Meet the TEAM !</h1>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <!-- Team Member 1 -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow">
+          <img src="image/tristesse.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Dominique</h5>
+            <div class="card-text text-black-70">Team Front </div>
+            <div class="card-text text-black-70">https://github.com/DomB2002
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- Team Member 2 -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow">
+          <img src="image/dormeur.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Lewis</h5>
+            <div class="card-text text-black-70">Team Back</div>
+            <div class="card-text text-black-70">https://github.com/Lwsgadea</div>
+          </div>
+        </div>
+      </div>
+      <!-- Team Member 3 -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow">
+          <img src="image/po2.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Omar</h5>
+            <div class="card-text text-black-70">Team Front</div>
+            <div class="card-text text-black-70">https://github.com/OmarAitL</div>
+          </div>
+        </div>
+      </div>
+      <!-- Team Member 4 -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow">
+          <img src="image/scrat.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Ulysse</h5>
+            <div class="card-text text-black-70">Team Back</div>
+            <div class="card-text text-black-70">https://github.com/UlyssePerret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+{% endblock %}

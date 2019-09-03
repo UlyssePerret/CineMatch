@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+
+{% block body %}
+    <style>
+        body {
+            background-image: url("{{ asset( 'image/tickets.jpg' ) }}");
+            background-size: cover;
+            color: white;
+
+        }
+
+        .form-group {
+            font-size: 1.1rem;
+        }
+
+    </style>
+    <div class="example-wrapper">
+        <h1>Inscription</h1>
+
+        <div class="container">
+            {{ form( inscription ) }}
+        </div>
+
+    </div>
+
+    Besoin d'aide ? Une question avant de s'inscrire ?<a href="{{ path('help') }}">Cliquez ici ! </a>
+{% endblock %}

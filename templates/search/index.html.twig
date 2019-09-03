@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultats de votre recherche{% endblock %}
+
+{% block body %}
+
+    <style>
+        body{
+            background-color: darkgray;
+        }
+        h1{
+            text-align: center;
+        }
+        h4{
+            padding-top: .5rem;
+        }
+        /*sticky footer*/
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+        .card {
+            margin: 5px;
+            padding: 0;
+            border: none;
+            background-color: transparent;
+        }
+
+        .card a {
+            box-shadow: 0 0 20px black;
+            margin: auto;
+        }
+
+    </style>
+
+<div>
+    <h1>Résultats de recherche</h1>
+
+    <ul>
+        <div class="row d-flex justify-content-between">
+            {% for film in films %}
+                <div class="card col-sm-2">
+                    <div class="row">
+
+                    <a href="{{ path( 'film', {id:film.id} ) }}">
+                        <img class="card-img" src="{{ asset( film.image  ?: 'https://urlz.fr/apSi') }}" alt="{{ film.titre }}">
+                    </a>
+                    </div>
+                    <div class="row">
+                    <h4>{{ film.titre }}</h4>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </ul>
+</div>
+{% endblock %}

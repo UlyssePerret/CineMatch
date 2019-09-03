@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EventController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello</h1>
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">
+            <small>{{events.titre}}</small>
+        </h1>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html.twig">Home</a>
+            </li>
+            <li class="breadcrumb-item active">About</li>
+        </ol>
+
+        <!-- Intro Content -->
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="img-fluid rounded mb-4" src="http://placehold.it/750x450" alt="">
+            </div>
+            <div class="col-lg-6">
+                <h4>Cinéma</h4>
+                <p>Récuperer ici le cinéma</p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Team Members -->
+        <h2>Our Team</h2>
+
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                    <img class="card-img-top" src="http://placehold.it/750x450" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Team Member</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Position</h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#">name@example.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                    <img class="card-img-top" src="http://placehold.it/750x450" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Team Member</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Position</h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#">name@example.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                    <img class="card-img-top" src="http://placehold.it/750x450" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Team Member</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Position</h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#">name@example.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Page pour les seances de film{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+        body{
+            background-color: darkgray;
+            /*background-image: url("image/tickets.jpg");
+            background-repeat: no-repeat;
+            background-size: cover*/
+        }
+        .row {
+            font-size: 1rem;
+        }
+
+        .cinema-image img {
+            max-width:100%;
+        }
+
+        .affiche img {
+            max-width:100px;
+        }
+        h1, h2, h3 {
+            color: black;
+        }
+        .btn {
+          /*padding: 3px;  */
+          /*  margin: 1px;*/
+
+        }
+        th{
+            font-size: 1rem;
+            text-align: center;
+        }
+    </style>
+
+    <h1> Les horaires des séances</h1>
+
+    <table class="table">
+        <tr  class="row" >
+            <th class="col col-md-1" > Cinéma </th>
+            <th class="col col-md-2" ></th>
+            <th class="col col-md-1" > Nom du film </th>
+            <th class="col col-md-2" > Affiche du film </th>
+            <th class="col col-md-2" > Date</th>
+            <th class="col col-md-2" > Heure</th>
+
+        </tr>
+        {% for theaterShowtime in seance.feed.theaterShowtimes %}
+            {% for movieShowtime in theaterShowtime.movieShowtimes %}
+                <tr  class="row" >
+                <td class="col col-md-1"  > {{ theaterShowtime.place.theater.name }} </td>
+                <td class="cinema-image col col-md-2" >
+                    <img src="{{ theaterShowtime.place.theater.picture.href | default( 'https://urlz.fr/alZB' ) }}" alt="">
+                </td>
+
+                {% if movieShowtime.onShow.movie.poster is defined %}
+                    <td class="col col-md-1"  >
+                       <h3>{{ movieShowtime.onShow.movie.title }}</h3>
+                    </td>
+                    <td class="affiche col col-md-2">
+                        <img src="{{ movieShowtime.onShow.movie.poster.href }}" alt="">
+                    </td>
+                {% endif %}
+                    {% for scr in movieShowtime.scr %}
+                    <td class="col col-md-2"  >
+                         {{ scr.d }}
+                    </td>
+                        <td class="col col-md-2">
+                            {% for t in scr.t %}
+                                <a href="{{ path( 'create_event', {code:film.code, codeseance:t.code, date:scr.d~t['$'] } ) }}" class="btn btn-lg btn-warning">Séance de {{ t['$'] }}</a>
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+
+{% endblock %}

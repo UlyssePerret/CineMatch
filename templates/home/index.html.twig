@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Ciné'Match{% endblock %}
+
+{% block body %}
+    <style>
+        body{
+            background-image: url("image/light-resized2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover
+        }
+
+        h2:first-of-type{
+            text-align: center;
+        }
+
+        .carousel-inner{
+            margin-bottom: 2rem;
+        }
+
+        .carousel-inner>img{
+            max-width: 30%;
+            height:auto; !important
+        }
+
+        .list-group{
+            margin-top: 2rem;
+        }
+        .list-group-item{
+            height: 6rem;
+            max-height: 200px;
+        }
+
+        .list-group>a{
+            font-size: 1.2rem;
+            color: #313131;
+        }
+        /*.carousel-control-next-icon:after
+        {
+            content: '>';
+            font-size: 55px;
+            color: red;
+        }
+        .carousel-control-prev-icon:after {
+            content: '<';
+            font-size: 55px;
+            color: red;
+        }*/
+
+        .card {
+            margin: 5px;
+            padding: 0;
+            border: none;
+            background-color: transparent;
+        }
+
+        .card a {
+            box-shadow: 0 0 20px black;
+            margin: auto;
+        }
+    </style>
+
+<div class="container" >
+
+<div class="container">
+    <div id="carouselExampleControls" class="carousel slide col-sm-8 offset-sm-2" data-ride="carousel">
+
+        <h2>À L'AFFICHE CETTE SEMAINE</h2>
+
+        <div class="carousel-inner justify-content-center"  style="height: 400px" >
+
+            {% for film in films %}
+                <div class="carousel-item container col-sm-6 offset-sm-3
+{% if loop.first %} active {% endif %}" >
+                    <a href="{{ path( 'film', {id:film.id} ) }}" class="d-flex justify-content-center">
+                        <img src="{{ asset( film.image )}}" class="d-block " alt="{{ film.titre }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
+    </div>
+
+{#
+         <!-- Sidebar Column -->
+            <div class="col-sm-4 " style="float: right; width: 100%;">
+                <h3>Un ciné aujourd'hui?</h3>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Event 1</a>
+                    <a href="#" class="list-group-item">Event 2</a>
+                    <a href="#" class="list-group-item">Event 3</a>
+                    <a href="#" class="list-group-item">Event 4</a>
+
+                </div>
+            </div>#}
+
+<h3>Les dernières sorties</h3>
+
+<!-- Marketing Icons Section -->
+<div class="row d-flex justify-content-between">
+    {% for film in films %}
+        <div class="card col-sm-2">
+            <a href="{{ path( 'film', {id:film.id} ) }}">
+                <img class="card-img" src="{{ asset( film.image ) }}" alt="{{ film.titre }}">
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

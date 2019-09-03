@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'aide{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    body {
+        background-color: darkgray;
+    }
+    /*sticky footer*/
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+<div class="example-wrapper">
+    <h1>Help & CGU </h1>
+
+    <h2> Suis-je obligé de mettre une adresse personnelle // professionnelle?</h2>
+    <p>
+        Non, et si vous voulez rester anonyme nous vous conseillons d'avoir une adresse jetable, une adresse email créée pour l'occasion.
+    </p>
+
+
+    <h2> Mes données sont-elles stockées?</h2>
+    <p>
+        Oui, comme pour la majorité des site.
+        <br>
+        Nous cryptons votre mot de passe et protégeons vos informations personnelles.
+        <br>
+        Vous bénéficiez d'un accès à vos données via la réglementation RGPD
+    </p>
+</div>
+{% endblock %}

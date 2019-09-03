@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title%}Contacts{% endblock %}
+
+{% block body %}
+  <style>
+
+      body{
+          background-color: darkgray;
+      }
+    h1, h3 {
+      color: #313131;
+    }
+    p{
+      font-size: 1.1rem;
+    }
+
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: white;
+      text-align: center;
+    }
+
+
+  </style>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Contact</h1>
+
+
+
+    <!-- Content Row -->
+    <div class="row">
+      <!-- Map Column -->
+      <div class="col-lg-8 mb-4">
+        <!-- Embedded Google Map -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.1923395398812!2d2.3538840156742418!3d48.85454257928709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd36fcf163%3A0x18cd9781bf297e6!2s9%20Rue%20Geoffroy%20l&#39;Asnier%2C%2075004%20Paris!5e0!3m2!1sfr!2sfr!4v1566918293787!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+      <!-- Contact Details Column -->
+      <div class="col-lg-4 mb-4">
+        <h3>Coordonnées</h3>
+        <p>
+          <strong>Webforce3</strong>
+
+          <br>Equipe Ciné'Match
+          <br>9, rue Geoffroy LASNIER
+          <br>75004 Paris
+        </p>
+        <p>
+          <abbr title="Téléphone">Tél</abbr>:  0 805 62 23 45
+        </p>
+        <p>
+          <abbr title="Email">Mail</abbr>:
+          <a href="mailto:name@example.com">info@wf3.fr
+          </a>
+        </p>
+      </div>
+    </div>
+    <!-- /.row -->
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+{% endblock %}

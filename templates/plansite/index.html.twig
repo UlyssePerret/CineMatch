@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PlansiteController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+    <h1>Plan du site</h1>
+    <ul>
+        <li><a  href="{{ path('home') }}">Accueil</a> </li>
+        <li>Barre de navigation</li>
+        <ul>
+            <li><a  href="{{ asset( 'film/{id<\d+>}' ) }}">Films</a></li>
+            <li><a  href="{{ path('list_event') }}"> Events </a></li>
+            <li><a  href="{{ path('list_member') }}" >Membres</a></li>
+            <li ><a href="{{ path('mon_espace') }}">Mon espace</a></li>
+        </ul>
+        <li> Pages Liées à la connexion</li>
+        <ul>
+            <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+            <li><a href="{{ path('login') }}">Connexion</a></li>
+            <li><a href="{{ path('inscription') }}">S'inscrire</a></li>
+        </ul>
+        <li> Page pour les admins :</li>
+        <ul>
+            <li><a href="{{ path('admin_dashboard') }}">DashBoard </a> </li>
+            <li><a href="{{ path('admin_user') }}">AdminUser</a> </li>
+            <li><a href="{{ path('adduser') }}">AjoutUser</a> </li>
+        </ul>
+
+        <li> Footer </li>
+        
+        
+    </ul>
+
+</div>
+{% endblock %}
