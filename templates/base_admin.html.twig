@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% endblock %}
+</head>
+<body>
+{% block nav %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <a class="navbar-brand" href="{{ path('home') }}">Cine'Match</a>
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent"  >
+            <ul class="navbar-nav ml-auto" >
+
+                <li class="nav-item {% if app.request.get( '_route' ) == 'admin' %} active {% endif %}">
+                    <a class="nav-link" href="{{ asset( 'film/{id<\d+>}' ) }}">Films</a>
+                </li>
+                <li class="nav-item {% if app.request.get( '_route' ) == 'admin' %} active {% endif %}">
+                    <a class="nav-link" href="{{ path('list_event') }}">Events</a>
+                </li>
+                <li class="nav-item {% if app.request.get( '_route' ) == 'admin' %} active {% endif %}">
+                    <a class="nav-link" href="{{ path('list_member') }}">Membres</a>
+                </li>
+                <li class="nav-item {% if app.request.get( '_route' ) == 'admin' %} active {% endif %}">
+                    <a class="nav-link" href="{{ path('admin_user') }}">Admin</a>
+                </li>
+                <li class="nav-item {% if app.request.get( '_route' ) == 'admin' %} active {% endif %}">
+                    <a class="nav-link" href="{{ path( 'adduser' ) }}">Ajouter Membre</a>
+                </li>
+                <li class="nav-item {% if app.request.get( '_route' ) == 'admin' %} active {% endif %}">
+                    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                </li>
+                
+            </ul>
+
+            
+
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+<!-- Footer -->
+<footer class="page-footer font-small bg-dark " style="margin-top: 200px; height: 150px">
+
+    <!-- Footer Links -->
+    <div class="container">
+
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+            <div class="row">
+                <div class="col-lg-6  col-md-4 col-sm-6 col-xs-6">
+                    <a href="{{ path ('aboutus') }}">À propos de nous</a>
+                </div>
+                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-6">
+                    <a href="{{ path( 'contact' ) }}"> Contact</a>
+                </div>
+            </div>
+
+        </div>
+        <!-- Grid row-->
+
+        <!-- Grid row-->
+        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    </div>
+    <!-- Grid row-->
+
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <a href="">Ciné'Match</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>{% block title %}Cine'Match{% endblock %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    {#            <link rel="stylesheet" href="{{ asset( 'css/style.css' ) }}">#}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            height: 100%;
+            /*background: #1b1e21 ;*/
+            font-size: 62.5%;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: #F5F5F5;
+        }
+
+        footer {
+            background: rgb(53, 58, 64);
+            height: 60px;
+            width: 100%;
+        }
+
+        .footer a {
+            font-size: 1.2rem;
+            color: #adb5bd;
+        }
+
+        footer .row {
+            text-align: center;
+            margin-top: 20px;
+            ;
+        }
+
+    
+        /*.navbar-brand{
+            font-family: 'Sedgwick Ave Display', cursive;
+            font-size: 2rem;
+        }*/
+        .navbar-nav{
+            padding-right: 50px;
+        }
+        .nav-link{
+            font-size: 2em;
+        }
+        .nav-item{
+            justify-content: space-between;
+        }
+
+        /*.remplissage{*/
+        /*    z-index: 1;*/
+        /*    height: 250px;*/
+        /*    background: #1b1e21;*/
+        /*}*/
+        </style>
+    {% endblock %}
+
+</head>
+
+<body>
+    {% block nav %}
+
+        <nav class="navbar navbar-expand-md navbar-dark" >
+        <a class="navbar-brand" href="{{ path('home') }}">
+            <img src="{{ asset( 'image/cinematch.png' ) }}" alt="Ciné'Match">
+        </a>​
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <!-- Search form -->
+        <form class="form-inline" style="margin-left: 2%;" action="{{ path('search')}}">
+            <input class="form-control mr-sm-3" type="text" 
+            name="search"
+            placeholder="Rechercher un film" aria-label="Search" >
+            <button class="btn btn-lg" type="submit"><i class="fas fa-search text-white ml-lg-auto" aria-hidden="true" style="font-size: 2rem"></i></button>
+
+        </form>
+    </div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item {% if app.request.get( '_route' ) == 'film' %} active {% endif %}">
+                <a class="nav-link" href="{{ path( 'home' ) }}">Films</a>
+            </li>
+            <li class="nav-item {% if app.request.get( '_route' ) == 'event' %} active {% endif %}">
+                <a class="nav-link" href="{{ path( 'list_event' ) }}">Events</a>
+            </li>
+            {% if not is_granted( 'IS_AUTHENTICATED_FULLY' ) %}
+            <li class="nav-item {% if app.request.get( '_route' ) == 'inscription' %} active {% endif %}">
+                <a class="nav-link" href="{{ path( 'inscription' ) }}">S'inscrire</a>
+            </li>
+            <li class="nav-item {% if app.request.get( '_route' ) == 'login' %} active {% endif %}">
+                <a class="nav-link" href="{{ path( 'login' ) }}">Se connecter</a>
+            </li>
+
+            {% elseif is_granted( 'IS_AUTHENTICATED_FULLY' ) %}
+
+            <li class="nav-item {% if app.request.get( '_route' ) == '#' %} active {% endif %}">
+                <a class="nav-link" href="{{ path ('mon_espace') }}">Mon espace</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path( 'app_logout' ) }}">Se déconnecter</a>
+            </li>
+
+            {% endif %}
+            ​
+            {% if is_granted( 'ROLE_ADMIN' ) %}
+            <li class="nav-item {% if app.request.get( '_route' ) == 'admin' %} active {% endif %}">
+                <a class="nav-link" href="{{ path( 'admin_user' ) }}">Admin</a>
+            </li>
+            {% endif %}
+        </ul>
+
+​    </nav>
+{% endblock %}
+
+<div class="container">
+
+{% block body %}{% endblock %}
+
+</div>
+​
+<!-- Footer -->
+<footer>
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4  col-md-4 col-sm-4 col-xs-4">
+                    <a href="{{ path ('aboutus') }}">À propos de nous</a>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-4 col-xs-4">
+                    <a href="{{ path ('help') }}">Help</a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a href="{{ path( 'contact' ) }}"> Contact</a>
+
+        </div>
+            </div>
+        </div>
+    </div>
+
+
+    </footer>
+
+    {% block javascripts %}
+    {#            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v4.0"></script>#}
+    <script src="https://kit.fontawesome.com/2b2135c731.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    {% endblock %}
+</body>
+
+</html>
